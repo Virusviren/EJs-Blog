@@ -23,7 +23,6 @@ app.get("/",function(req,res){
 
 });
 
-
 app.get("/about",function(req,res){
   res.render("about",{aboutContent:aboutContent});
 });
@@ -52,7 +51,9 @@ posts.push(post);
 
 
 
-
+app.get("/posts/:postName",function(req,res){
+  console.log(req.params.postName);
+});
 
 
 
