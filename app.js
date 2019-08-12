@@ -3,6 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+const _ = require("lodash");
 
 let posts = [];
 
@@ -53,11 +54,14 @@ posts.push(post);
 
 app.get("/posts/:postName",function(req,res){
 
-  const requestedTitle = req.params.postNAme;
-  posts.forEach(function(post){
-  const storedTitle = post.title;
+  const requestedTitle = _.lowerCase(req.params.postName);
 
-  if (storedTitle == requestedTitle)
+  posts.forEach(function(post){
+  const storedTitle = _.lowerCase(post.title);
+
+
+
+  if (storedTitle === requestedTitle)
   {
     console.log("Match Found");
   }
