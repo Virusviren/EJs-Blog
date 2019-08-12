@@ -52,7 +52,21 @@ posts.push(post);
 
 
 app.get("/posts/:postName",function(req,res){
-  console.log(req.params.postName);
+
+  const requestedTitle = req.params.postNAme;
+  posts.forEach(function(post){
+  const storedTitle = post.title;
+
+  if (storedTitle == requestedTitle)
+  {
+    console.log("Match Found");
+  }
+  else{
+    console.log("Match Not found");
+  }
+  }
+);
+
 });
 
 
