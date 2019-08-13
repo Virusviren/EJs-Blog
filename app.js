@@ -20,7 +20,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 app.get("/",function(req,res){
-  res.render("home",{homeStartingContent:homeStartingContent,posts:posts});
+// let truncatedContent = _.truncate(post.content,{'length':100});
+
+  res.render("home",{homeStartingContent:homeStartingContent,
+    posts:posts
+  });
 
 });
 
