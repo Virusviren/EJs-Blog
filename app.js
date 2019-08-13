@@ -50,8 +50,6 @@ posts.push(post);
 
 
 
-
-
 app.get("/posts/:postName",function(req,res){
 
   const requestedTitle = _.lowerCase(req.params.postName);
@@ -63,15 +61,29 @@ app.get("/posts/:postName",function(req,res){
 
   if (storedTitle === requestedTitle)
   {
-    console.log("Match Found");
-  }
-  else{
-    console.log("Match Not found");
+    res.render("post",{
+      title:post.title,
+      content:post.content
+
+    });
   }
   }
 );
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
